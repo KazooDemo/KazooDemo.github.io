@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://github.com/KazooDemo/KazooDemo.github.io</id>
-    <title>失之城</title>
-    <updated>2021-09-25T12:28:00.254Z</updated>
+    <title>test</title>
+    <updated>2021-09-25T12:29:20.069Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://github.com/KazooDemo/KazooDemo.github.io"/>
     <link rel="self" href="http://github.com/KazooDemo/KazooDemo.github.io/atom.xml"/>
-    <subtitle>沉默着欢喜</subtitle>
     <logo>http://github.com/KazooDemo/KazooDemo.github.io/images/avatar.png</logo>
     <icon>http://github.com/KazooDemo/KazooDemo.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, 失之城</rights>
+    <rights>All rights reserved 2021, test</rights>
 </feed>
