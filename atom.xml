@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://97io.cc</id>
     <title>失之城</title>
-    <updated>2021-09-27T13:52:03.132Z</updated>
+    <updated>2021-12-11T11:50:59.034Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://97io.cc"/>
     <link rel="self" href="https://97io.cc/atom.xml"/>
@@ -10,4 +10,19 @@
     <logo>https://97io.cc/images/avatar.png</logo>
     <icon>https://97io.cc/favicon.ico</icon>
     <rights>All rights reserved 2021, 失之城</rights>
+    <entry>
+        <title type="html"><![CDATA[WinScp访问群晖根目录]]></title>
+        <id>https://97io.cc/post/winscp-fang-wen-qun-hui-gen-mu-lu/</id>
+        <link href="https://97io.cc/post/winscp-fang-wen-qun-hui-gen-mu-lu/">
+        </link>
+        <updated>2021-12-11T11:41:44.000Z</updated>
+        <content type="html"><![CDATA[<p>1、控制面板--&gt;终端机和SNMP--&gt;启动SSH功能和Telnet功能</p>
+<p>2、使用SSH客户端连接群晖，sudo -i切换到root</p>
+<p>3、创建root用户，输入synouser --setpw root 密码</p>
+<p>4、输入vi /etc/ssh/sshd_config</p>
+<p>5、按i键修改，将 #PermitRootLogin prohibit-password修改成PermitRootLogin yes</p>
+<p>6、最后按下键盘Esc键退出编辑模式，输入 :wq 按回车后就保存退出了，然后重启一下NAS</p>
+<p>7、最后使用WinScp进行连接NAS</p>
+]]></content>
+    </entry>
 </feed>
