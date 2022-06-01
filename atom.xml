@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://97io.cc</id>
     <title>失之城</title>
-    <updated>2022-01-22T03:53:42.352Z</updated>
+    <updated>2022-06-01T10:50:55.587Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://97io.cc"/>
     <link rel="self" href="https://97io.cc/atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://97io.cc/images/avatar.png</logo>
     <icon>https://97io.cc/favicon.ico</icon>
     <rights>All rights reserved 2022, 失之城</rights>
+    <entry>
+        <title type="html"><![CDATA[群晖、威联通安装IYUU]]></title>
+        <id>https://97io.cc/post/qun-hui-wei-lian-tong-an-zhuang-iyuu/</id>
+        <link href="https://97io.cc/post/qun-hui-wei-lian-tong-an-zhuang-iyuu/">
+        </link>
+        <updated>2022-06-01T10:44:25.000Z</updated>
+        <content type="html"><![CDATA[<p>qBittorrent的种子目录叫BT_backup<br>
+transmission的种子目录叫torrents。<br>
+Linux系统qBittorrent种子目录搜索命令：find / -name BT_backup<br>
+Linux系统transmission种子目录搜索命令：find / -name torrents<br>
+Windows系统qBittorrent种子目录，通常在C:\Users\你的用户名\AppData\Local\qBittorrent\BT_backup</p>
+<p>cp -r -s 原始目录 目标目录</p>
+<p>威联通</p>
+<p>创建IYUU共享文件夹，创建db文件夹</p>
+<p>创建软链接<br>
+ln -sf /share/CACHEDEV1_DATA/.qpkg/TransmissionPT3/etc/torrents /share/CACHEDEV1_DATA/IYUU <br>
+ln -sf /share/CACHEDEV1_DATA/.qpkg/qBittorrent/.local/share/qBittorrent/BT_backup /share/CACHEDEV1_DATA/IYUU \</p>
+<p>docker run -d <br>
+--name IYUUPlus <br>
+-v /share/CACHEDEV1_DATA/IYUU/db:/IYUU/db <br>
+-v /share/CACHEDEV1_DATA/IYUU/BT_backup:/IYUU/qb <br>
+-v /share/CACHEDEV1_DATA/IYUU/torrents:/IYUU/tr3 <br>
+--net=host <br>
+--restart=always <br>
+iyuucn/iyuuplus:latest</p>
+<p>群晖</p>
+<p>创建软链接<br>
+ln -sf /volume1/@appstore/qBittorrent/qBittorrent_conf/data/BT_backup /volume1/docker/IYUU <br>
+ln -sf /volume1/@appdata/transmission/torrents /volume1/docker/IYUU \</p>
+<p>docker run -d <br>
+--name IYUUPlus <br>
+-v /volume1/docker/IYUU/db:/IYUU/db <br>
+-v /volume1/docker/IYUU/BT_backup:/IYUU/qb <br>
+-v /volume1/docker/IYUU/torrents:/IYUU/tr <br>
+--net=host <br>
+--restart=always <br>
+iyuucn/iyuuplus:latest</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[一台NAS的使命]]></title>
         <id>https://97io.cc/post/yi-tai-nas-de-shi-ming/</id>
