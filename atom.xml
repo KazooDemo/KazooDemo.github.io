@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://97io.cc</id>
     <title>失之城</title>
-    <updated>2022-06-01T10:50:55.587Z</updated>
+    <updated>2022-07-08T17:27:50.751Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://97io.cc"/>
     <link rel="self" href="https://97io.cc/atom.xml"/>
@@ -10,6 +10,22 @@
     <logo>https://97io.cc/images/avatar.png</logo>
     <icon>https://97io.cc/favicon.ico</icon>
     <rights>All rights reserved 2022, 失之城</rights>
+    <entry>
+        <title type="html"><![CDATA[可道云Nginx反向代理后外网访问页面空白]]></title>
+        <id>https://97io.cc/post/ke-dao-yun-nginx-fan-xiang-dai-li-hou-wai-wang-fang-wen-ye-mian-kong-bai/</id>
+        <link href="https://97io.cc/post/ke-dao-yun-nginx-fan-xiang-dai-li-hou-wai-wang-fang-wen-ye-mian-kong-bai/">
+        </link>
+        <updated>2022-07-08T17:24:07.000Z</updated>
+        <content type="html"><![CDATA[<p>location / {<br>
+proxy_pass http://localhost;<br>
+proxy_set_header Host $host(http_host);<br>
+proxy_set_header X-Real-IP $remote_addr;<br>
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>
+proxy_set_header X-Forwarded-Proto $scheme;<br>
+}<br>
+<img src="https://97io.cc/post-images/1657301208706.jpeg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[群晖、威联通安装IYUU]]></title>
         <id>https://97io.cc/post/qun-hui-wei-lian-tong-an-zhuang-iyuu/</id>
