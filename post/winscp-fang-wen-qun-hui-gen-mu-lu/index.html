@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<title>WinScp访问群晖根目录 | 失之城</title>
+<link rel="shortcut icon" href="https://iblog.ivlt.top/favicon.ico">
+<link href="https://iblog.ivlt.top/styles/main.css" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_1678829_7cn41ho9lyt.css" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="失之城 » Feed" href="https://iblog.ivlt.top/atom.xml">
+        <meta name="description" content="1、控制面板--&gt;终端机和SNMP--&gt;启动SSH功能和Telnet功能
+2、使用SSH客户端连接群晖，sudo -i切换到root
+3、创建root用户，输入synouser --setpw root 密码
+4、输入vi /e..." />
+        <meta name="keywords" content="群晖,NAS" />
+</head>
+
+<body>
+    <div class="main animated">
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <a href="https://iblog.ivlt.top">失之城</a>&nbsp;<p style="font-size:13px;display: inline; color:#A0A0A0">沉默着欢喜</p>
+        </div>
+    </div>
+    <div class="my_socials">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <a href="https://t.me/LG_567" target="_blank"><i class="iconfont icon-telegram"></i></a>
+            
+        
+        <a href="https://iblog.ivlt.top/atom.xml" target="_blank"><i class="iconfont icon-rss"></i></a>
+    </div>
+</div>
+
+    <div class="header_menu">
+        
+            
+                <a href="/" class="menu">首页</a>
+            
+        
+            
+                <a href="/archives" class="menu">归档</a>
+            
+        
+            
+                <a href="/tags" class="menu">标签</a>
+            
+        
+            
+                <a href="/post/about" class="menu">关于</a>
+            
+        
+        <div class="gridea-search-div">
+            <form id="gridea-search-form" action="https://iblog.ivlt.top/search/">
+                <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q"/>
+            </form>
+        </div>
+    </div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+                    <div class="post_page">
+                        <div class="post animated fadeInDown">
+                            <div class="post_title post_detail_title">
+                                <h2><a>
+                                        WinScp访问群晖根目录
+                                    </a></h2>
+                                <span class="article-info">
+                                    2021-12-11, 115 words, 1 min read
+                                </span>
+                            </div>
+                            <div class="post_content markdown">
+                                <p class="md_block">
+                                    <span class="md_line md_line_start md_line_end">
+                                        <p>1、控制面板--&gt;终端机和SNMP--&gt;启动SSH功能和Telnet功能</p>
+<p>2、使用SSH客户端连接群晖，sudo -i切换到root</p>
+<p>3、创建root用户，输入synouser --setpw root 密码</p>
+<p>4、输入vi /etc/ssh/sshd_config</p>
+<p>5、按i键修改，将 #PermitRootLogin prohibit-password修改成PermitRootLogin yes<br>
+<img src="https://iblog.ivlt.top/post-images/1639229074575.png" alt="" loading="lazy"><br>
+6、最后按下键盘Esc键退出编辑模式，输入 :wq 按回车后就保存退出了，然后重启一下NAS</p>
+<p>7、最后使用WinScp进行连接NAS<br>
+<img src="https://iblog.ivlt.top/post-images/1639229083840.png" alt="" loading="lazy"></p>
+<br />
+                                            
+                                </p>
+                            </div>
+                            <div class="post_footer">
+                                
+                                    <div class="meta">
+                                        <div class="info"><span class="field tags"><i class="iconfont icon-tag-sm"></i>
+                                                
+                                                    <a href="https://iblog.ivlt.top/tag/cAWqzO8qa/" class="article-info">
+                                                        群晖
+                                                    </a>
+                                                    
+                                                    <a href="https://iblog.ivlt.top/tag/3kv8FrOpj-/" class="article-info">
+                                                        NAS
+                                                    </a>
+                                                    
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                        
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div style="clear: both;max-width: 780px;text-align: center;font-size: 12px;padding: 15px 0px;margin: 0 auto;">
+    
+    <div class="powered_by">
+        <a href="https://github.com/tangkaichuan/gridea-theme-one" target="_blank" style="color:#B0B0B0">Theme One,</a>
+        <a href="https://gridea.dev/" target="_blank" style="color:#B0B0B0">Powered by Gridea&#65281;</a>
+    </div>
+
+    <div id="back_to_top" class="back_to_top">
+        <span>△</span>
+    </div>
+    
+</div>
+
+<script src="https://iblog.ivlt.top/media/scripts/util.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+</body>
+
+</html>

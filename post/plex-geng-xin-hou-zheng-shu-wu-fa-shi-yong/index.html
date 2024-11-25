@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<title>plex更新后证书无法使用 | 失之城</title>
+<link rel="shortcut icon" href="https://iblog.ivlt.top/favicon.ico">
+<link href="https://iblog.ivlt.top/styles/main.css" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_1678829_7cn41ho9lyt.css" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="失之城 » Feed" href="https://iblog.ivlt.top/atom.xml">
+        <meta name="description" content="nas端
+使用winscp进入/var/packages/PlexMediaServer，并创建data文件夹
+windows端
+1、在https://slproweb.com/products/Win32OpenSSL.html 中下载o..." />
+        <meta name="keywords" content="" />
+</head>
+
+<body>
+    <div class="main animated">
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <a href="https://iblog.ivlt.top">失之城</a>&nbsp;<p style="font-size:13px;display: inline; color:#A0A0A0">沉默着欢喜</p>
+        </div>
+    </div>
+    <div class="my_socials">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <a href="https://t.me/LG_567" target="_blank"><i class="iconfont icon-telegram"></i></a>
+            
+        
+        <a href="https://iblog.ivlt.top/atom.xml" target="_blank"><i class="iconfont icon-rss"></i></a>
+    </div>
+</div>
+
+    <div class="header_menu">
+        
+            
+                <a href="/" class="menu">首页</a>
+            
+        
+            
+                <a href="/archives" class="menu">归档</a>
+            
+        
+            
+                <a href="/tags" class="menu">标签</a>
+            
+        
+            
+                <a href="/post/about" class="menu">关于</a>
+            
+        
+        <div class="gridea-search-div">
+            <form id="gridea-search-form" action="https://iblog.ivlt.top/search/">
+                <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q"/>
+            </form>
+        </div>
+    </div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+                    <div class="post_page">
+                        <div class="post animated fadeInDown">
+                            <div class="post_title post_detail_title">
+                                <h2><a>
+                                        plex更新后证书无法使用
+                                    </a></h2>
+                                <span class="article-info">
+                                    2023-11-30, 228 words, 1 min read
+                                </span>
+                            </div>
+                            <div class="post_content markdown">
+                                <p class="md_block">
+                                    <span class="md_line md_line_start md_line_end">
+                                        <p>nas端<br>
+使用winscp进入/var/packages/PlexMediaServer，并创建data文件夹</p>
+<p>windows端<br>
+1、在https://slproweb.com/products/Win32OpenSSL.html 中下载openssl并安装。<br>
+2、在系统中环境变量Path中配置环境变量C:\Program Files\OpenSSL-Win64\bin<br>
+3、cmd使用openssl version测试是否正确安装。<br>
+4、进入证书存放目录<br>
+cd C:\NM\certificate<br>
+5、执行以下命令将Let's Encrypt证书转换为PFX格式<br>
+plexssl.pfx       转换后的文件<br>
+privkey1.pem    秘钥<br>
+fullchain1.pem  证书<br>
+openssl pkcs12 -export -out plexssl.pfx -inkey privkey1.pem -in fullchain1.pem<br>
+输入两次密码，没必要复杂<br>
+6、将转换好的plexssl.pfx上传至/var/packages/PlexMediaServer/data中</p>
+<p>plex端<br>
+进入设置-网络<br>
+在自定义证书位置中填入/var/packages/PlexMediaServer/data/plexssl.pfx<br>
+自定义证书加密密钥填入刚刚设置的密码<br>
+自定义证书域填入自己的域名。<br>
+自定义服务器访问 URL填入https://域名<br>
+最后保存。</p>
+<br />
+                                            
+                                </p>
+                            </div>
+                            <div class="post_footer">
+                                
+                                        
+                                            <div class="next-post" style="margin-top: 20px;">
+                                                <div class="next">下一篇</div>
+                                                <a href="https://iblog.ivlt.top/post/qun-hui-da-jian-docker_web-mian-ban/">
+                                                    <h3 class="post-title">
+                                                        群晖搭建docker_web面板
+                                                    </h3>
+                                                </a>
+                                            </div>
+                                            
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div style="clear: both;max-width: 780px;text-align: center;font-size: 12px;padding: 15px 0px;margin: 0 auto;">
+    
+    <div class="powered_by">
+        <a href="https://github.com/tangkaichuan/gridea-theme-one" target="_blank" style="color:#B0B0B0">Theme One,</a>
+        <a href="https://gridea.dev/" target="_blank" style="color:#B0B0B0">Powered by Gridea&#65281;</a>
+    </div>
+
+    <div id="back_to_top" class="back_to_top">
+        <span>△</span>
+    </div>
+    
+</div>
+
+<script src="https://iblog.ivlt.top/media/scripts/util.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+</body>
+
+</html>

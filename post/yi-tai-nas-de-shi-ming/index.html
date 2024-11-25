@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<title>一台NAS的使命 | 失之城</title>
+<link rel="shortcut icon" href="https://iblog.ivlt.top/favicon.ico">
+<link href="https://iblog.ivlt.top/styles/main.css" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_1678829_7cn41ho9lyt.css" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="失之城 » Feed" href="https://iblog.ivlt.top/atom.xml">
+        <meta name="description" content="自己组的物理群晖用了一段时间了，关于nas想写点什么，又不知道要写点什么，索性随便写点自己NAS的用途。
+从20年到现在先后使用过小猫盘、威联通212p3、物理群。真就是想买一个东西，买了相对便宜的回来越折腾越发现跟不上自己的需求。
+猫盘当..." />
+        <meta name="keywords" content="群晖,NAS" />
+</head>
+
+<body>
+    <div class="main animated">
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <a href="https://iblog.ivlt.top">失之城</a>&nbsp;<p style="font-size:13px;display: inline; color:#A0A0A0">沉默着欢喜</p>
+        </div>
+    </div>
+    <div class="my_socials">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <a href="https://t.me/LG_567" target="_blank"><i class="iconfont icon-telegram"></i></a>
+            
+        
+        <a href="https://iblog.ivlt.top/atom.xml" target="_blank"><i class="iconfont icon-rss"></i></a>
+    </div>
+</div>
+
+    <div class="header_menu">
+        
+            
+                <a href="/" class="menu">首页</a>
+            
+        
+            
+                <a href="/archives" class="menu">归档</a>
+            
+        
+            
+                <a href="/tags" class="menu">标签</a>
+            
+        
+            
+                <a href="/post/about" class="menu">关于</a>
+            
+        
+        <div class="gridea-search-div">
+            <form id="gridea-search-form" action="https://iblog.ivlt.top/search/">
+                <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q"/>
+            </form>
+        </div>
+    </div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+                    <div class="post_page">
+                        <div class="post animated fadeInDown">
+                            <div class="post_title post_detail_title">
+                                <h2><a>
+                                        一台NAS的使命
+                                    </a></h2>
+                                <span class="article-info">
+                                    2022-01-22, 955 words, 4 min read
+                                </span>
+                            </div>
+                            <div class="post_content markdown">
+                                <p class="md_block">
+                                    <span class="md_line md_line_start md_line_end">
+                                        <p>自己组的物理群晖用了一段时间了，关于nas想写点什么，又不知道要写点什么，索性随便写点自己NAS的用途。</p>
+<p>从20年到现在先后使用过小猫盘、威联通212p3、物理群。真就是想买一个东西，买了相对便宜的回来越折腾越发现跟不上自己的需求。</p>
+<p>猫盘当时只有一个1T的盘，用了一段时间吃灰。<br>
+威联通212p3放了一个3T紫盘和之前那个1T的盘，存储文件，共享照片，播放器，轻微玩玩PT，轻微玩玩docker够用，玩狠了经常崩。<br>
+前些天组了物理群，就把文件、照片、播放器都转到物理群上了，威联通目前只用来保种，后期把盘转物理群上，就考虑把威联通卖掉了。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823138823.jpeg" alt="" loading="lazy"></p>
+<p>物理群配置如下，嫌麻烦直接在某宝和某东采购，就这还换了一次主板，最开始选的技嘉小雕，结果网卡有问题，换成华硕了，在某鱼淘会省不少软妹币。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823225718.jpeg" alt="" loading="lazy"><br>
+中塔机箱配了一个1u电源，很痛苦，支持matx板的机箱太贵了，cpu风扇声音有点大，可能是没有设置好，这样一对比机箱风扇声音基本上听不见，机箱硬盘盒很垃圾，装盘时大力出奇迹直接把一个硬盘盒掰两半了，做工也一般般，不过相对其他机箱来说算是便宜的了。</p>
+<p>系统信息<br>
+<img src="https://iblog.ivlt.top/post-images/1642823273780.jpeg" alt="" loading="lazy"><br>
+cpu过剩，内存后期可能大概应该得加。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823286083.jpeg" alt="" loading="lazy"></p>
+<p>三块硬盘：两块500G的SSD，一块4T紫盘。<br>
+铠侠2.5寸固态盘：主要用来存储照片等文件。<br>
+海康西数4T紫盘：用来玩PT，当影视库。<br>
+三星980M.2固态盘：没做缓存，直接改成储存盘了，目前给虚拟机和网心云当系统数据盘。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823334544.jpeg" alt="" loading="lazy"></p>
+<p>系统为6.2.3，没升级7.0，只能用Photo+Moments和女朋友共享和查看照片，单独拿出来都不怎么好用。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823349751.jpeg" alt="" loading="lazy"></p>
+<p>Docker开了5个容器，路由器设置了DDNS，所以DDNS基本上不开，以防万一还是设置了自启。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823364369.jpeg" alt="" loading="lazy"></p>
+<p>Docker搭建Jellyfin+tmm刮削当做视频播放器，硬解cpu占用20-30，偶尔抽风50左右或者10以下；最开始用的Plex配Infuse，不怎么美观就不用了；音乐播放器使用Plex+Prism，Plex匹配部分内容乱码，还得手动改，现在已经躺平随它去吧，没找到更好用美观的替代品。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823375945.jpeg" alt="" loading="lazy"></p>
+<p>迅雷偶尔使用下载，速度跑满，不知道以后会怎么样<br>
+<img src="https://iblog.ivlt.top/post-images/1642823386394.jpeg" alt="" loading="lazy"></p>
+<p>Vmm挂了一个Win10和网心云，Win10偶尔用用，随用随开机。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823399962.jpeg" alt="" loading="lazy"><br>
+本想挂两个网心云，结果第二个虚拟机开机内存就飙到90了，而且用一个盘也有点问题，现在缓存190G了，收益差不多1软妹币，重启一次当天收益就下去了，公网IP变动也影响收益，不知道能不能刷回硬盘钱和电费。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823418668.jpeg" alt="" loading="lazy"></p>
+<p>百度云，同步了一些之前的文件，速度依旧感人。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823429920.jpeg" alt="" loading="lazy"></p>
+<p>Synology Drive，把重要数据在群晖和电脑之前双向同步，这个规则就是不清楚NAS上盘坏了会不会把电脑上的文件直接给删除。手机和电脑之间、Mac和Windows之间互传文件都方便了很多。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823455294.jpeg" alt="" loading="lazy"><br>
+<img src="https://iblog.ivlt.top/post-images/1642823473646.jpeg" alt="" loading="lazy"><br>
+<img src="https://iblog.ivlt.top/post-images/1642823482874.jpeg" alt="" loading="lazy"><br>
+手机上访问团队文件(实际上只有我自己在用)<br>
+<img src="https://iblog.ivlt.top/post-images/1642823518132.jpeg" alt="" loading="lazy"></p>
+<p>目前好像主要的用途就这些，刚刚才发现插座昨天就掉线了，关机重置了一下插座(今天收益又减少了)，开机功率不到60，平时在31-35之间，不开虚拟机基本上在26-29之间，一天0.8度电。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823531616.jpeg" alt="" loading="lazy"></p>
+<br />
+                                            
+                                </p>
+                            </div>
+                            <div class="post_footer">
+                                
+                                    <div class="meta">
+                                        <div class="info"><span class="field tags"><i class="iconfont icon-tag-sm"></i>
+                                                
+                                                    <a href="https://iblog.ivlt.top/tag/cAWqzO8qa/" class="article-info">
+                                                        群晖
+                                                    </a>
+                                                    
+                                                    <a href="https://iblog.ivlt.top/tag/3kv8FrOpj-/" class="article-info">
+                                                        NAS
+                                                    </a>
+                                                    
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                        
+                                            <div class="next-post" style="margin-top: 20px;">
+                                                <div class="next">下一篇</div>
+                                                <a href="https://iblog.ivlt.top/post/qun-hui-a-li-yun-ddns/">
+                                                    <h3 class="post-title">
+                                                        群晖阿里云DDNS
+                                                    </h3>
+                                                </a>
+                                            </div>
+                                            
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div style="clear: both;max-width: 780px;text-align: center;font-size: 12px;padding: 15px 0px;margin: 0 auto;">
+    
+    <div class="powered_by">
+        <a href="https://github.com/tangkaichuan/gridea-theme-one" target="_blank" style="color:#B0B0B0">Theme One,</a>
+        <a href="https://gridea.dev/" target="_blank" style="color:#B0B0B0">Powered by Gridea&#65281;</a>
+    </div>
+
+    <div id="back_to_top" class="back_to_top">
+        <span>△</span>
+    </div>
+    
+</div>
+
+<script src="https://iblog.ivlt.top/media/scripts/util.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+</body>
+
+</html>

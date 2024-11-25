@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://iblog.ivlt.top</id>
+    <title>失之城</title>
+    <updated>2024-11-25T10:32:38.286Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://iblog.ivlt.top"/>
+    <link rel="self" href="https://iblog.ivlt.top/atom.xml"/>
+    <subtitle>&lt;p style=&quot;font-size:13px;display: inline; color:#A0A0A0&quot;&gt;沉默着欢喜&lt;/p&gt;</subtitle>
+    <logo>https://iblog.ivlt.top/images/avatar.png</logo>
+    <icon>https://iblog.ivlt.top/favicon.ico</icon>
+    <rights>All rights reserved 2024, 失之城</rights>
+    <entry>
+        <title type="html"><![CDATA[gridea恢复]]></title>
+        <id>https://iblog.ivlt.top/post/gridea-hui-fu/</id>
+        <link href="https://iblog.ivlt.top/post/gridea-hui-fu/">
+        </link>
+        <updated>2023-11-30T13:58:29.000Z</updated>
+        <content type="html"><![CDATA[<p>将备份的内容放入左下角站点源文件路径内。<br>
+恢复前切勿向github同步</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[plex更新后证书无法使用]]></title>
+        <id>https://iblog.ivlt.top/post/plex-geng-xin-hou-zheng-shu-wu-fa-shi-yong/</id>
+        <link href="https://iblog.ivlt.top/post/plex-geng-xin-hou-zheng-shu-wu-fa-shi-yong/">
+        </link>
+        <updated>2023-11-30T13:16:33.000Z</updated>
+        <content type="html"><![CDATA[<p>nas端<br>
+使用winscp进入/var/packages/PlexMediaServer，并创建data文件夹</p>
+<p>windows端<br>
+1、在https://slproweb.com/products/Win32OpenSSL.html 中下载openssl并安装。<br>
+2、在系统中环境变量Path中配置环境变量C:\Program Files\OpenSSL-Win64\bin<br>
+3、cmd使用openssl version测试是否正确安装。<br>
+4、进入证书存放目录<br>
+cd C:\NM\certificate<br>
+5、执行以下命令将Let's Encrypt证书转换为PFX格式<br>
+plexssl.pfx       转换后的文件<br>
+privkey1.pem    秘钥<br>
+fullchain1.pem  证书<br>
+openssl pkcs12 -export -out plexssl.pfx -inkey privkey1.pem -in fullchain1.pem<br>
+输入两次密码，没必要复杂<br>
+6、将转换好的plexssl.pfx上传至/var/packages/PlexMediaServer/data中</p>
+<p>plex端<br>
+进入设置-网络<br>
+在自定义证书位置中填入/var/packages/PlexMediaServer/data/plexssl.pfx<br>
+自定义证书加密密钥填入刚刚设置的密码<br>
+自定义证书域填入自己的域名。<br>
+自定义服务器访问 URL填入https://域名<br>
+最后保存。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[群晖搭建docker_web面板]]></title>
+        <id>https://iblog.ivlt.top/post/qun-hui-da-jian-docker_web-mian-ban/</id>
+        <link href="https://iblog.ivlt.top/post/qun-hui-da-jian-docker_web-mian-ban/">
+        </link>
+        <updated>2023-11-29T12:22:02.000Z</updated>
+        <content type="html"><![CDATA[<p>由于群晖最近docke总是提示注册表查询失败，每次还要使用本地的代理加速才能拉取。搜索教程后特地搭建一个docker_web面板。<br>
+1、创建root用户<br>
+首先参考博客内此文章<a href="https://blog.inas.wiki/post/winscp-fang-wen-qun-hui-gen-mu-lu/">WinScp访问群晖根目录<a/>创建root用户，一是如果不使用root用户搭建会提示没有权限。二是直接在群晖中搭建好后会提示“监控事件已退出”。</p>
+<p>2、拉取容器<br>
+使用刚刚创建的root用户账号进入SSH，执行以下命令<br>
+docker run --name docker_web <br>
+-p 8999:8999 <br>
+--restart=always <br>
+-v /var/run/docker.sock:/var/run/docker.sock <br>
+-d joinsunsoft/docker.ui</p>
+<p>参数说明：<br>
+docker run：启动container<br>
+–name：容器命名<br>
+–restart=always：自启动<br>
+–privileged=true：权限<br>
+-p：映射容器的端口到主机上的端口<br>
+-v：将容器的目录映射到本地计算机上目录中<br>
+-e：参数<br>
+-d：在后台运行容器</p>
+<p>3、访问wbe面板<br>
+使用ip:8999进行访问，账号：ginghan，密码：123456</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[可道云Nginx反向代理后外网访问页面空白]]></title>
+        <id>https://iblog.ivlt.top/post/ke-dao-yun-nginx-fan-xiang-dai-li-hou-wai-wang-fang-wen-ye-mian-kong-bai/</id>
+        <link href="https://iblog.ivlt.top/post/ke-dao-yun-nginx-fan-xiang-dai-li-hou-wai-wang-fang-wen-ye-mian-kong-bai/">
+        </link>
+        <updated>2022-07-08T17:24:07.000Z</updated>
+        <content type="html"><![CDATA[<p>location / {<br>
+proxy_pass http://localhost;<br>
+proxy_set_header Host $host(http_host);<br>
+proxy_set_header X-Real-IP $remote_addr;<br>
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>
+proxy_set_header X-Forwarded-Proto $scheme;<br>
+}<br>
+<img src="https://iblog.ivlt.top/post-images/1657301208706.jpeg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[群晖、威联通安装IYUU]]></title>
+        <id>https://iblog.ivlt.top/post/qun-hui-wei-lian-tong-an-zhuang-iyuu/</id>
+        <link href="https://iblog.ivlt.top/post/qun-hui-wei-lian-tong-an-zhuang-iyuu/">
+        </link>
+        <updated>2022-06-01T10:44:25.000Z</updated>
+        <content type="html"><![CDATA[<p>qBittorrent的种子目录叫BT_backup<br>
+transmission的种子目录叫torrents。<br>
+Linux系统qBittorrent种子目录搜索命令：find / -name BT_backup<br>
+Linux系统transmission种子目录搜索命令：find / -name torrents<br>
+Windows系统qBittorrent种子目录，通常在C:\Users\你的用户名\AppData\Local\qBittorrent\BT_backup</p>
+<p>cp -r -s 原始目录 目标目录</p>
+<p>威联通</p>
+<p>创建IYUU共享文件夹，创建db文件夹</p>
+<p>创建软链接<br>
+ln -sf /share/CACHEDEV1_DATA/.qpkg/TransmissionPT3/etc/torrents /share/CACHEDEV1_DATA/IYUU <br>
+ln -sf /share/CACHEDEV1_DATA/.qpkg/qBittorrent/.local/share/qBittorrent/BT_backup /share/CACHEDEV1_DATA/IYUU \</p>
+<p>docker run -d <br>
+--name IYUUPlus <br>
+-v /share/CACHEDEV1_DATA/IYUU/db:/IYUU/db <br>
+-v /share/CACHEDEV1_DATA/IYUU/BT_backup:/IYUU/qb <br>
+-v /share/CACHEDEV1_DATA/IYUU/torrents:/IYUU/tr3 <br>
+--net=host <br>
+--restart=always <br>
+iyuucn/iyuuplus:latest</p>
+<p>群晖</p>
+<p>创建软链接<br>
+ln -sf /volume1/@appstore/qBittorrent/qBittorrent_conf/data/BT_backup /volume1/docker/IYUU <br>
+ln -sf /volume1/@appdata/transmission/torrents /volume1/docker/IYUU \</p>
+<p>docker run -d <br>
+--name IYUUPlus <br>
+-v /volume1/docker/IYUU/db:/IYUU/db <br>
+-v /volume1/docker/IYUU/BT_backup:/IYUU/qb <br>
+-v /volume1/docker/IYUU/torrents:/IYUU/tr <br>
+--net=host <br>
+--restart=always <br>
+iyuucn/iyuuplus:latest</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一台NAS的使命]]></title>
+        <id>https://iblog.ivlt.top/post/yi-tai-nas-de-shi-ming/</id>
+        <link href="https://iblog.ivlt.top/post/yi-tai-nas-de-shi-ming/">
+        </link>
+        <updated>2022-01-22T03:44:15.000Z</updated>
+        <content type="html"><![CDATA[<p>自己组的物理群晖用了一段时间了，关于nas想写点什么，又不知道要写点什么，索性随便写点自己NAS的用途。</p>
+<p>从20年到现在先后使用过小猫盘、威联通212p3、物理群。真就是想买一个东西，买了相对便宜的回来越折腾越发现跟不上自己的需求。</p>
+<p>猫盘当时只有一个1T的盘，用了一段时间吃灰。<br>
+威联通212p3放了一个3T紫盘和之前那个1T的盘，存储文件，共享照片，播放器，轻微玩玩PT，轻微玩玩docker够用，玩狠了经常崩。<br>
+前些天组了物理群，就把文件、照片、播放器都转到物理群上了，威联通目前只用来保种，后期把盘转物理群上，就考虑把威联通卖掉了。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823138823.jpeg" alt="" loading="lazy"></p>
+<p>物理群配置如下，嫌麻烦直接在某宝和某东采购，就这还换了一次主板，最开始选的技嘉小雕，结果网卡有问题，换成华硕了，在某鱼淘会省不少软妹币。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823225718.jpeg" alt="" loading="lazy"><br>
+中塔机箱配了一个1u电源，很痛苦，支持matx板的机箱太贵了，cpu风扇声音有点大，可能是没有设置好，这样一对比机箱风扇声音基本上听不见，机箱硬盘盒很垃圾，装盘时大力出奇迹直接把一个硬盘盒掰两半了，做工也一般般，不过相对其他机箱来说算是便宜的了。</p>
+<p>系统信息<br>
+<img src="https://iblog.ivlt.top/post-images/1642823273780.jpeg" alt="" loading="lazy"><br>
+cpu过剩，内存后期可能大概应该得加。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823286083.jpeg" alt="" loading="lazy"></p>
+<p>三块硬盘：两块500G的SSD，一块4T紫盘。<br>
+铠侠2.5寸固态盘：主要用来存储照片等文件。<br>
+海康西数4T紫盘：用来玩PT，当影视库。<br>
+三星980M.2固态盘：没做缓存，直接改成储存盘了，目前给虚拟机和网心云当系统数据盘。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823334544.jpeg" alt="" loading="lazy"></p>
+<p>系统为6.2.3，没升级7.0，只能用Photo+Moments和女朋友共享和查看照片，单独拿出来都不怎么好用。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823349751.jpeg" alt="" loading="lazy"></p>
+<p>Docker开了5个容器，路由器设置了DDNS，所以DDNS基本上不开，以防万一还是设置了自启。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823364369.jpeg" alt="" loading="lazy"></p>
+<p>Docker搭建Jellyfin+tmm刮削当做视频播放器，硬解cpu占用20-30，偶尔抽风50左右或者10以下；最开始用的Plex配Infuse，不怎么美观就不用了；音乐播放器使用Plex+Prism，Plex匹配部分内容乱码，还得手动改，现在已经躺平随它去吧，没找到更好用美观的替代品。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823375945.jpeg" alt="" loading="lazy"></p>
+<p>迅雷偶尔使用下载，速度跑满，不知道以后会怎么样<br>
+<img src="https://iblog.ivlt.top/post-images/1642823386394.jpeg" alt="" loading="lazy"></p>
+<p>Vmm挂了一个Win10和网心云，Win10偶尔用用，随用随开机。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823399962.jpeg" alt="" loading="lazy"><br>
+本想挂两个网心云，结果第二个虚拟机开机内存就飙到90了，而且用一个盘也有点问题，现在缓存190G了，收益差不多1软妹币，重启一次当天收益就下去了，公网IP变动也影响收益，不知道能不能刷回硬盘钱和电费。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823418668.jpeg" alt="" loading="lazy"></p>
+<p>百度云，同步了一些之前的文件，速度依旧感人。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823429920.jpeg" alt="" loading="lazy"></p>
+<p>Synology Drive，把重要数据在群晖和电脑之前双向同步，这个规则就是不清楚NAS上盘坏了会不会把电脑上的文件直接给删除。手机和电脑之间、Mac和Windows之间互传文件都方便了很多。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823455294.jpeg" alt="" loading="lazy"><br>
+<img src="https://iblog.ivlt.top/post-images/1642823473646.jpeg" alt="" loading="lazy"><br>
+<img src="https://iblog.ivlt.top/post-images/1642823482874.jpeg" alt="" loading="lazy"><br>
+手机上访问团队文件(实际上只有我自己在用)<br>
+<img src="https://iblog.ivlt.top/post-images/1642823518132.jpeg" alt="" loading="lazy"></p>
+<p>目前好像主要的用途就这些，刚刚才发现插座昨天就掉线了，关机重置了一下插座(今天收益又减少了)，开机功率不到60，平时在31-35之间，不开虚拟机基本上在26-29之间，一天0.8度电。<br>
+<img src="https://iblog.ivlt.top/post-images/1642823531616.jpeg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[群晖阿里云DDNS]]></title>
+        <id>https://iblog.ivlt.top/post/qun-hui-a-li-yun-ddns/</id>
+        <link href="https://iblog.ivlt.top/post/qun-hui-a-li-yun-ddns/">
+        </link>
+        <updated>2021-12-11T12:08:12.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>
+<p>登录阿里云控制台，鼠标右上角头像，点击 “accesskey管理”。</p>
+</li>
+<li>
+<p>创建好账号，授权。</p>
+</li>
+<li>
+<p>权限管理-授权<br>
+选择就是 管理云解析（DNS）的权限。</p>
+</li>
+<li>
+<p>将账号的 AccessKeyID、AccessKeySecret 保存下来。</p>
+</li>
+<li>
+<p>域名进去域名解析</p>
+<ol>
+<li>对自己的域名，进行解析的设置；</li>
+<li>选择添加记录；</li>
+<li>记录类型选择类型A；</li>
+<li>主机记录，补充完整自己的域名；</li>
+<li>记录值，添加自己的公网ip。</li>
+</ol>
+</li>
+<li>
+<p>SSH客户端连接NAS，sudo -i切换到root用户，执行下面代码。</p>
+<ol>
+<li>项目地址：https://registry.hub.docker.com/r/sanjusss/aliyun-ddns/</li>
+<li>docker run -d --restart=always --net=host <br>
+-e &quot;AKID=[AccessKeyID]&quot; <br>
+-e &quot;AKSCT=[AccessKeySecret]&quot; <br>
+-e &quot;DOMAIN=ds.97io.cc&quot; <br>
+-e &quot;REDO=30&quot; <br>
+-e &quot;TTL=60&quot; <br>
+-e &quot;TIMEZONE=8.0&quot; <br>
+-e &quot;TYPE=A,AAAA&quot; <br>
+sanjusss/aliyun-ddns</li>
+</ol>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[WinScp访问群晖根目录]]></title>
+        <id>https://iblog.ivlt.top/post/winscp-fang-wen-qun-hui-gen-mu-lu/</id>
+        <link href="https://iblog.ivlt.top/post/winscp-fang-wen-qun-hui-gen-mu-lu/">
+        </link>
+        <updated>2021-12-11T11:41:44.000Z</updated>
+        <content type="html"><![CDATA[<p>1、控制面板--&gt;终端机和SNMP--&gt;启动SSH功能和Telnet功能</p>
+<p>2、使用SSH客户端连接群晖，sudo -i切换到root</p>
+<p>3、创建root用户，输入synouser --setpw root 密码</p>
+<p>4、输入vi /etc/ssh/sshd_config</p>
+<p>5、按i键修改，将 #PermitRootLogin prohibit-password修改成PermitRootLogin yes<br>
+<img src="https://iblog.ivlt.top/post-images/1639229074575.png" alt="" loading="lazy"><br>
+6、最后按下键盘Esc键退出编辑模式，输入 :wq 按回车后就保存退出了，然后重启一下NAS</p>
+<p>7、最后使用WinScp进行连接NAS<br>
+<img src="https://iblog.ivlt.top/post-images/1639229083840.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+</feed>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<title>群晖搭建docker_web面板 | 失之城</title>
+<link rel="shortcut icon" href="https://iblog.ivlt.top/favicon.ico">
+<link href="https://iblog.ivlt.top/styles/main.css" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_1678829_7cn41ho9lyt.css" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="失之城 » Feed" href="https://iblog.ivlt.top/atom.xml">
+        <meta name="description" content="由于群晖最近docke总是提示注册表查询失败，每次还要使用本地的代理加速才能拉取。搜索教程后特地搭建一个docker_web面板。
+1、创建root用户
+首先参考博客内此文章WinScp访问群晖根目录创建root用户，一是如果不使用root..." />
+        <meta name="keywords" content="" />
+</head>
+
+<body>
+    <div class="main animated">
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <a href="https://iblog.ivlt.top">失之城</a>&nbsp;<p style="font-size:13px;display: inline; color:#A0A0A0">沉默着欢喜</p>
+        </div>
+    </div>
+    <div class="my_socials">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <a href="https://t.me/LG_567" target="_blank"><i class="iconfont icon-telegram"></i></a>
+            
+        
+        <a href="https://iblog.ivlt.top/atom.xml" target="_blank"><i class="iconfont icon-rss"></i></a>
+    </div>
+</div>
+
+    <div class="header_menu">
+        
+            
+                <a href="/" class="menu">首页</a>
+            
+        
+            
+                <a href="/archives" class="menu">归档</a>
+            
+        
+            
+                <a href="/tags" class="menu">标签</a>
+            
+        
+            
+                <a href="/post/about" class="menu">关于</a>
+            
+        
+        <div class="gridea-search-div">
+            <form id="gridea-search-form" action="https://iblog.ivlt.top/search/">
+                <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q"/>
+            </form>
+        </div>
+    </div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+                    <div class="post_page">
+                        <div class="post animated fadeInDown">
+                            <div class="post_title post_detail_title">
+                                <h2><a>
+                                        群晖搭建docker_web面板
+                                    </a></h2>
+                                <span class="article-info">
+                                    2023-11-29, 253 words, 1 min read
+                                </span>
+                            </div>
+                            <div class="post_content markdown">
+                                <p class="md_block">
+                                    <span class="md_line md_line_start md_line_end">
+                                        <p>由于群晖最近docke总是提示注册表查询失败，每次还要使用本地的代理加速才能拉取。搜索教程后特地搭建一个docker_web面板。<br>
+1、创建root用户<br>
+首先参考博客内此文章<a href="https://blog.inas.wiki/post/winscp-fang-wen-qun-hui-gen-mu-lu/">WinScp访问群晖根目录<a/>创建root用户，一是如果不使用root用户搭建会提示没有权限。二是直接在群晖中搭建好后会提示“监控事件已退出”。</p>
+<p>2、拉取容器<br>
+使用刚刚创建的root用户账号进入SSH，执行以下命令<br>
+docker run --name docker_web <br>
+-p 8999:8999 <br>
+--restart=always <br>
+-v /var/run/docker.sock:/var/run/docker.sock <br>
+-d joinsunsoft/docker.ui</p>
+<p>参数说明：<br>
+docker run：启动container<br>
+–name：容器命名<br>
+–restart=always：自启动<br>
+–privileged=true：权限<br>
+-p：映射容器的端口到主机上的端口<br>
+-v：将容器的目录映射到本地计算机上目录中<br>
+-e：参数<br>
+-d：在后台运行容器</p>
+<p>3、访问wbe面板<br>
+使用ip:8999进行访问，账号：ginghan，密码：123456</p>
+<br />
+                                            
+                                </p>
+                            </div>
+                            <div class="post_footer">
+                                
+                                        
+                                            <div class="next-post" style="margin-top: 20px;">
+                                                <div class="next">下一篇</div>
+                                                <a href="https://iblog.ivlt.top/post/ke-dao-yun-nginx-fan-xiang-dai-li-hou-wai-wang-fang-wen-ye-mian-kong-bai/">
+                                                    <h3 class="post-title">
+                                                        可道云Nginx反向代理后外网访问页面空白
+                                                    </h3>
+                                                </a>
+                                            </div>
+                                            
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div style="clear: both;max-width: 780px;text-align: center;font-size: 12px;padding: 15px 0px;margin: 0 auto;">
+    
+    <div class="powered_by">
+        <a href="https://github.com/tangkaichuan/gridea-theme-one" target="_blank" style="color:#B0B0B0">Theme One,</a>
+        <a href="https://gridea.dev/" target="_blank" style="color:#B0B0B0">Powered by Gridea&#65281;</a>
+    </div>
+
+    <div id="back_to_top" class="back_to_top">
+        <span>△</span>
+    </div>
+    
+</div>
+
+<script src="https://iblog.ivlt.top/media/scripts/util.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+</body>
+
+</html>
